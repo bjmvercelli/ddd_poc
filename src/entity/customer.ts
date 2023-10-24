@@ -6,7 +6,7 @@ export class Customer {
   _address!: Address;
   _active: boolean = false;
 
-  constructor(id: string, name: string, address: string) {
+  constructor(id: string, name: string) {
     this._id = id;
     this._name = name;
 
@@ -31,7 +31,7 @@ export class Customer {
     return this._active = true;
   }
 
-  set address(address: Address){
+  set Address(address: Address){
     this._address = address;
   }
 }
