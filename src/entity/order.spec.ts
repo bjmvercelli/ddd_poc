@@ -19,15 +19,18 @@ describe('Order', () => {
   });
 
   it('Should calculate total', () => {
-    const item = new OrderItem('1', 'item-1', 10);
-    const item2 = new OrderItem('2', 'item-2', 100);
+    const item = new OrderItem('1', 'item-1', 10, 'product-1', 2);
+    const item2 = new OrderItem('2', 'item-2', 100, 'product-2', 2);
 
     const order = new Order('order-id', 'customer-id', [item]);
-
-    expect(order.total()).toBe(10);
+    expect(order.total()).toBe(20);
 
     const order2 = new Order('order-id', 'customer-id', [item, item2]);
+    expect(order2.total()).toBe(220);
+  });
 
-    expect(order2.total()).toBe(110);
+  it('Should throw error when item quantity is less than 1', () => {
+    expect(() => new OrderItem('1', 'item-1', 10, 'product-1', 0))
+      .toThrowError('Quantity must be greater than 0');
   });
 });
