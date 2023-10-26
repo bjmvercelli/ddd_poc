@@ -1,7 +1,7 @@
 import { Address } from "./address";
 import { Customer } from "./customer";
 
-describe('Customer', () => {
+describe("Customer", () => {
   it("Should throw an error when id is empty", () => {
     expect(() => {
       new Customer("", "John Doe");
@@ -36,12 +36,7 @@ describe('Customer', () => {
 
   it("Should activate customer", () => {
     const customer = new Customer("123", "John Doe");
-    const address = new Address(
-      "Rua 1",
-      "São Paulo",
-      "SP",
-      "12345678",
-    );
+    const address = new Address("Rua 1", "São Paulo", "SP", "12345678");
 
     customer.Address = address;
 
@@ -64,5 +59,15 @@ describe('Customer', () => {
     expect(() => {
       customer.activate();
     }).toThrowError("Address is required");
+  });
+
+  it("Should add reward points", () => {
+    const customer = new Customer("123", "John Doe");
+
+    customer.addRewardPoints(10);
+    expect(customer.rewardPoints).toBe(10);
+
+    customer.addRewardPoints(20);
+    expect(customer.rewardPoints).toBe(30);
   });
 });
