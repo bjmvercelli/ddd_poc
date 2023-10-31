@@ -36,9 +36,9 @@ describe("Customer", () => {
 
   it("Should activate customer", () => {
     const customer = new Customer("123", "John Doe");
-    const address = new Address("Rua 1", "São Paulo", "SP", "12345678");
+    const address = new Address("Rua 1", 123, "12345678", "São Paulo",);
 
-    customer.Address = address;
+    customer.changeAddress(address);
 
     customer.activate();
 
