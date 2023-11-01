@@ -15,6 +15,18 @@ export class Order {
     this.validate();
   }
 
+  get id(): string {
+    return this._id;
+  }
+
+  get customerId(): string {
+    return this._customerId;
+  }
+
+  get items(): OrderItem[] {
+    return this._items;
+  }
+
   private validate(): void {
     if (!this._id) {
       throw new Error("Id is required");
@@ -31,6 +43,12 @@ export class Order {
     if (this._items.some((item) => item.quantity < 1)) {
       throw new Error("Quantity must be greater than 0");
     }
+  }
+
+  changeItems(items: OrderItem[]): void {
+    this._items = items;
+    this._total = this.total();
+    this.validate();
   }
 
   total(): number {

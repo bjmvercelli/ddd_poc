@@ -27,7 +27,7 @@ export class OrderItemModel extends Model {
   declare order_id: string;
 
   @BelongsTo(() => OrderModel)
-  declare order: OrderModel;
+  declare order: Awaited<OrderModel>;
 
   @Column({ allowNull: false })
   declare name: string;
@@ -36,5 +36,5 @@ export class OrderItemModel extends Model {
   declare quantity: number;
 
   @Column({ allowNull: false })
-  declare total: number;
+  declare price: number;
 }

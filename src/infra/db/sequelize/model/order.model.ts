@@ -6,7 +6,7 @@ import { OrderItemModel } from "./order-item.model";
 export class OrderModel extends Model {
   @PrimaryKey
   @Column
-  declare id: any;
+  declare id: string;
 
   @ForeignKey(() => CustomerModel)
   @Column({ allowNull: false })
