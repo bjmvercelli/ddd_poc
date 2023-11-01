@@ -27,6 +27,7 @@ export class OrderRepository implements OrderRepositoryInterface {
 
   async update(entity: Order): Promise<void> {
     try {
+      // Workaround to update order items
       const sequelize = OrderModel.sequelize;
       await sequelize!.transaction(async (transaction) => {
         await OrderItemModel.destroy({
