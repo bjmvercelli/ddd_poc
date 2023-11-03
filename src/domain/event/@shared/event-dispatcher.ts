@@ -16,7 +16,7 @@ export class EventDispatcher implements EventDispatcherInterface {
     eventName: string,
     eventHandler: EventHandlerInterface<EventInterface>
   ): void {
-    if(!this.eventHandlers[eventName]) {
+    if (!this.eventHandlers[eventName]) {
       this.eventHandlers[eventName] = [];
     }
 
@@ -26,9 +26,16 @@ export class EventDispatcher implements EventDispatcherInterface {
     eventName: string,
     eventHandler: EventHandlerInterface<EventInterface>
   ): void {
-    throw new Error("Method not implemented.");
+    if (!this.eventHandlers[eventName]) {
+      return;
+    }
+
+    this.eventHandlers[eventName] = this.eventHandlers[eventName].filter(
+      (handler) => handler !== eventHandler
+    );
   }
+
   unregisterAll(): void {
-    throw new Error("Method not implemented.");
+    this.eventHandlers = {};
   }
 }
