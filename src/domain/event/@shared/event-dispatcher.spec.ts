@@ -1,4 +1,5 @@
 import { SendEmailOnProductCreatedHandler } from "../product/handler/send-email-on-product-created.handler";
+import { ProductCreatedEvent } from "../product/product-created.event";
 import { EventDispatcher } from "./event-dispatcher";
 
 describe("EventDispatcher", () => {
@@ -34,5 +35,23 @@ describe("EventDispatcher", () => {
     eventDispatcher.unregisterAll();
     expect(eventDispatcher.getEventHandlers["ProductCreatedEvent"]).toBeUndefined();
     expect(eventDispatcher.getEventHandlers).toEqual({});
+  });
+
+  it("Should notify event handlers", () => {
+    const eventDispatcher = new EventDispatcher();
+    const eventHandler = new SendEmailOnProductCreatedHandler();
+    const spyEventHandler = jest.spyOn(eventHandler, "handle");
+    eventDispatcher.register("ProductCreatedEvent", eventHandler);
+    expect(eventDispatcher.getEventHandlers["ProductCreatedEvent"][0]).toMatchObject(eventHandler);
+
+    const event = new ProductCreatedEvent({
+      productId: "1",
+      name: "Product 1",
+      price: 100,
+    });
+
+    // Quando o método notify for chamado, o método handle do eventHandler deve ser chamado
+    eventDispatcher.notify(event);
+    expect(spyEventHandler).toHaveBeenCalledTimes(1);
   });
 });
