@@ -1,10 +1,10 @@
-import { EventDispatcher } from "../event/@shared/event-dispatcher";
-import { CustomerAddressChangedEvent } from "../event/customer/customer-address-changed.event";
-import { CustomerCreatedEvent } from "../event/customer/customer-created.event";
-import { EnviaConsoleLogHandler } from "../event/customer/handler/log-on-customer-address-changed.handler";
-import { EnviaConsoleLog1Handler } from "../event/customer/handler/log-on-customer-created-1.handler";
-import { EnviaConsoleLog2Handler } from "../event/customer/handler/log-on-customer-created-2.handler";
-import { Address } from "./address";
+import { EventDispatcher } from "../../@shared/event/event-dispatcher";
+import { CustomerAddressChangedEvent } from "../event/customer-address-changed.event";
+import { CustomerCreatedEvent } from "../event/customer-created.event";
+import { EnviaConsoleLogHandler } from "../event/handler/log-on-customer-address-changed.handler";
+import { EnviaConsoleLog1Handler } from "../event/handler/log-on-customer-created-1.handler";
+import { EnviaConsoleLog2Handler } from "../event/handler/log-on-customer-created-2.handler";
+import { Address } from "../value-object/address";
 
 export class Customer {
   private _id: string;

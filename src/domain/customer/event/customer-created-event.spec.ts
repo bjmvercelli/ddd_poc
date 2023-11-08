@@ -1,4 +1,4 @@
-import { EventDispatcher } from "../@shared/event-dispatcher";
+import { EventDispatcher } from "../../@shared/event/event-dispatcher";
 import { CustomerCreatedEvent } from "./customer-created.event";
 import { EnviaConsoleLog1Handler } from "./handler/log-on-customer-created-1.handler";
 import { EnviaConsoleLog2Handler } from "./handler/log-on-customer-created-2.handler";
