@@ -8,7 +8,7 @@ export interface OutputFindCustomerDTO {
   address: {
     street: string;
     city: string;
-    number: string;
+    number: number;
     zip: string;
   }
 }

@@ -3,8 +3,9 @@ import { CustomerModel } from "../../../infra/customer/repository/sequelize/cust
 import { CustomerRepository } from "../../../infra/customer/repository/sequelize/customer.repository";
 import { Customer } from "../../../domain/customer/entity/customer";
 import { Address } from "../../../domain/customer/value-object/address";
+import { FindCustomerUseCase } from "./find.customer.usecase";
 
-describe("Find Customer UseCase", () => {
+describe("Find Customer UseCase Integration", () => {
 
   let sequelize: Sequelize;
 
@@ -27,7 +28,7 @@ describe("Find Customer UseCase", () => {
     const customerRepository = new CustomerRepository();
     const findCustomerUseCase = new FindCustomerUseCase(customerRepository);
 
-    const customer = new Customer("1", "Customer 1");
+    const customer = new Customer("123", "Customer 1");
     const address = new Address("Rua 1", 123, "12345678", "São Paulo");
     customer.changeAddress(address);
     await customerRepository.create(customer);
@@ -36,10 +37,10 @@ describe("Find Customer UseCase", () => {
       id: "123"
     }
 
-    const output = findCustomerUseCase.execute(input);
+    const output = await findCustomerUseCase.execute(input);
 
     expect(output).toStrictEqual({
-      id: "1",
+      id: "123",
       name: "Customer 1",
       address: {
         street: "Rua 1",
