@@ -16,7 +16,7 @@ describe("Find Customer UseCase Integration", () => {
       logging: false,
       sync: { force: true },
     });
-    await sequelize.addModels([CustomerModel]);
+    sequelize.addModels([CustomerModel]);
     await sequelize.sync();
   });
 
