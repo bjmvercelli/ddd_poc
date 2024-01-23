@@ -935,6 +935,11 @@
     expect "^29.0.0"
     pretty-format "^29.0.0"
 
+"@types/jstoxml@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@types/jstoxml/-/jstoxml-2.0.4.tgz#6086b1facdbf2e47d2225d74001705b92a17b433"
+  integrity sha512-XHUMp2t8CfJUsKt8qjlspZWlkVeveFg2eF/kRV8CKiNQ+Fd3mJkfexIDXtZEnG/4aJZRCVNNn46zNddSVIUN0w==
+
 "@types/keyv@^3.1.4":
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/@types/keyv/-/keyv-3.1.4.tgz#3ccdb1c6751b0c7e52300bcdacd5bcbf8faa75b6"
@@ -2892,6 +2897,11 @@ jsonc-parser@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/jsonc-parser/-/jsonc-parser-3.2.0.tgz#31ff3f4c2b9793f89c67212627c51c6394f88e76"
   integrity sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==
+
+jstoxml@^3.2.10:
+  version "3.2.10"
+  resolved "https://registry.yarnpkg.com/jstoxml/-/jstoxml-3.2.10.tgz#f3d3ba89478d6cf75c81fb43fe464786061a768e"
+  integrity sha512-c1v2CFxKrhIPWr+cOrBOJWkClka5RfUWG12Y1gqyFD4dzKTlxkarniklwOT/6wR1Zfl+x2ZVIjRIQR9DFiG1rQ==
 
 keyv@^4.0.0:
   version "4.5.4"
