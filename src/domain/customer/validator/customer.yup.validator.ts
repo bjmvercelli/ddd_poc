@@ -20,7 +20,6 @@ export class CustomerYupValidator implements ValidatorInterface<Customer> {
         );
     } catch (error) {
       const e = error as yup.ValidationError;
-      console.log(e)
       e.errors.forEach((error) => {
         entity.notification.addError({
           message: error,
