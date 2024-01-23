@@ -17,7 +17,7 @@ describe("Customer", () => {
   it("Should throw an error when name and id are empty", () => {
     expect(() => {
       new Customer("", "");
-    }).toThrow("customer: Name is required, customer: Id is required");
+    }).toThrow("customer: Id is required, customer: Name is required");
   });
 
   it("Should change name", () => {
