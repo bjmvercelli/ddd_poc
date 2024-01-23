@@ -42,7 +42,7 @@ describe("Update Product UseCase Unit", () => {
     };
 
     await expect(updateProductUseCase.execute(input)).rejects.toThrow(
-      "Name is required"
+      "product: Name is required"
     );
   });
 });
