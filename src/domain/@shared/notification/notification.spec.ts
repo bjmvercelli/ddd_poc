@@ -40,4 +40,27 @@ describe("Notification unit test", () => {
       "testContext: Error message, testContext: Error message 2, otherContext: Error message 3"
     );
   });
+
+  it("Should check if has errors", () => {
+    const notification = new Notification();
+    const error = {
+      message: "Error message",
+      context: "testContext",
+    };
+    notification.addError(error);
+
+    expect(notification.hasErrors()).toBe(true);
+  });
+
+  it("Should get all errors props", () => {
+    const notification = new Notification();
+    const error = {
+      message: "Error message",
+      context: "testContext",
+    };
+    notification.addError(error);
+
+    expect(notification.getErrors()).toEqual([error]);
+  });
+
 });
