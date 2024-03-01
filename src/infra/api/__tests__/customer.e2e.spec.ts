@@ -77,6 +77,6 @@ describe("Customer E2E tests", () => {
     expect(response.text).toContain("<street>");
     expect(response.text).toContain("<number>");
     expect(response.text).toContain("<zip>");
-    expect(response.text).toContain("<city>");
+    expect(response.text).toContain("<city>");  
   });
 });
